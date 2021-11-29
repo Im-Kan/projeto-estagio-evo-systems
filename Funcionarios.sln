@@ -5,6 +5,24 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funcionarios", "asp net core com angular\Funcionarios.csproj", "{EED36B07-E21D-4A27-AB47-C057E7756042}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Web", "1-Web", "{359DF2EF-BB0D-4624-AC7A-F746573E0BDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Application", "2-Application", "{701AE4AC-704B-46DF-9411-930787D3B933}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domain", "3-Domain", "{81AF743B-3B94-44DE-8F2E-57AC91187F3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infra", "4-Infra", "{BDE56C32-920A-4338-B93C-67A729D9A5DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcionarios.Application", "Funcionarios.Application\Funcionarios.Application.csproj", "{3919BE7A-F9DA-45DE-9B3E-FBD2030DD200}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcionarios.Domain", "Funcionarios.Domain\Funcionarios.Domain.csproj", "{25A16020-3120-4612-8F13-94F9D8BD4150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcionarios.data", "Funcionarios.infra\Funcionarios.data.csproj", "{2760CA50-F623-408E-A409-E5668A4A3907}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1-Data", "4.1-Data", "{4E3E234C-F8B0-4E23-BDF2-E768C5C03C38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2-CrossCutting", "4.2-CrossCutting", "{31C16484-576D-4B65-9996-97E92C5BFD71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +33,29 @@ Global
 		{EED36B07-E21D-4A27-AB47-C057E7756042}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EED36B07-E21D-4A27-AB47-C057E7756042}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EED36B07-E21D-4A27-AB47-C057E7756042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3919BE7A-F9DA-45DE-9B3E-FBD2030DD200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3919BE7A-F9DA-45DE-9B3E-FBD2030DD200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3919BE7A-F9DA-45DE-9B3E-FBD2030DD200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3919BE7A-F9DA-45DE-9B3E-FBD2030DD200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25A16020-3120-4612-8F13-94F9D8BD4150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25A16020-3120-4612-8F13-94F9D8BD4150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25A16020-3120-4612-8F13-94F9D8BD4150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25A16020-3120-4612-8F13-94F9D8BD4150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2760CA50-F623-408E-A409-E5668A4A3907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2760CA50-F623-408E-A409-E5668A4A3907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2760CA50-F623-408E-A409-E5668A4A3907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2760CA50-F623-408E-A409-E5668A4A3907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EED36B07-E21D-4A27-AB47-C057E7756042} = {359DF2EF-BB0D-4624-AC7A-F746573E0BDC}
+		{3919BE7A-F9DA-45DE-9B3E-FBD2030DD200} = {701AE4AC-704B-46DF-9411-930787D3B933}
+		{25A16020-3120-4612-8F13-94F9D8BD4150} = {81AF743B-3B94-44DE-8F2E-57AC91187F3F}
+		{2760CA50-F623-408E-A409-E5668A4A3907} = {4E3E234C-F8B0-4E23-BDF2-E768C5C03C38}
+		{4E3E234C-F8B0-4E23-BDF2-E768C5C03C38} = {BDE56C32-920A-4338-B93C-67A729D9A5DF}
+		{31C16484-576D-4B65-9996-97E92C5BFD71} = {BDE56C32-920A-4338-B93C-67A729D9A5DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0FB65622-2662-4575-B8D1-DAA12A1AFE71}
