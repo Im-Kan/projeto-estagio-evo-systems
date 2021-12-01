@@ -1,6 +1,8 @@
+using Funcionarios.data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +22,8 @@ namespace asp_net_core_com_angular
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<FuncionariosContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("FuncionariosDB")).EnableSensitiveDataLogging());
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

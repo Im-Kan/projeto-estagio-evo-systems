@@ -10,4 +10,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Migrations" Version="1.0.1" />
+  </ItemGroup>
+
 </Project>
