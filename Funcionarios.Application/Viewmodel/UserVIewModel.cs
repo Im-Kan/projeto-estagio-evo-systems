@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Funcionarios.Domain.Entities;
-using Funcionarios.Domain.Models;
 
-namespace Funcionarios.Domain.Entities
+namespace Funcionarios.Application.Viewmodel
 {
-    public class User: Entity
+    public class UserViewModel
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
-
         public string Email { get; set; }
+
     }
 }

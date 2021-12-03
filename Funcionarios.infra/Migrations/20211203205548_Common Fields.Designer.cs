@@ -4,14 +4,16 @@ using Funcionarios.data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Funcionarios.data.Migrations
 {
     [DbContext(typeof(FuncionariosContext))]
-    partial class FuncionariosContextModelSnapshot : ModelSnapshot
+    [Migration("20211203205548_Common Fields")]
+    partial class CommonFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace Funcionarios.data.Migrations
                         new
                         {
                             Id = new Guid("e28234c7-e309-418e-9367-f6c456469cf1"),
-                            DateCreated = new DateTime(2021, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "userdefault@funcionarios.com",
                             IsDeleted = false,
                             Names = "User Default"

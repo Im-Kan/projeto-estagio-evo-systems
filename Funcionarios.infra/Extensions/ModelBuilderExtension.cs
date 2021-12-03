@@ -14,7 +14,7 @@ namespace Funcionarios.data.Extensions
         {
             builder.Entity<User>()
                 .HasData(
-                    new User { Id = Guid.Parse("e28234c7-e309-418e-9367-f6c456469cf1"), Names = "User Default", Email = "userdefault@funcionarios.com" }
+                    new User { Id = Guid.Parse("e28234c7-e309-418e-9367-f6c456469cf1"), Name = "User Default", Email = "userdefault@funcionarios.com" , DateCreated = new DateTime(2021,12,3), IsDeleted = false , DateUpdated = null}
                 );
             return builder;
         }

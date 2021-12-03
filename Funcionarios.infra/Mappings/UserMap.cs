@@ -15,7 +15,7 @@ namespace Funcionarios.data.Mappings
         {
             builder.Property(x => x.Id).IsRequired();
 
-            builder.Property(x => x.Names).HasMaxLength(100).HasColumnName("Nomes").IsRequired();
+            builder.Property(x => x.Name).HasMaxLength(100).HasColumnName("Nomes").IsRequired();
             
         }
     }

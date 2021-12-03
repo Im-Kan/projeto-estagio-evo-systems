@@ -5,13 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\" />
-    <Folder Include="Viewmodel\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="Migrations" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Migrations" Version="1.0.1" />
+    <ProjectReference Include="..\Funcionarios.Domain\Funcionarios.Domain.csproj" />
   </ItemGroup>
 
 </Project>

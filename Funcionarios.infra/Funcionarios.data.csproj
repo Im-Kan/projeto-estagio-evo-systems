@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Mappings\" />
-    <Folder Include="Repo\" />
   </ItemGroup>
 
   <ItemGroup>
