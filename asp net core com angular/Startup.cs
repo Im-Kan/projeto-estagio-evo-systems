@@ -1,3 +1,4 @@
+using Funcionarios.Application.AutoMapper;
 using Funcionarios.data.Context;
 using Funcionarios.IoC;
 using Microsoft.AspNetCore.Builder;
@@ -25,8 +26,9 @@ namespace asp_net_core_com_angular
             services.AddControllersWithViews();
 
             services.AddDbContext<FuncionariosContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("FuncionariosDB")).EnableSensitiveDataLogging());
-
             NativeInjector.RegisterServices(services);
+
+            services.AddAutoMapper(typeof(AutoMapperSetup));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

@@ -1,4 +1,5 @@
-﻿using Funcionarios.Application.Interface;
+﻿using AutoMapper;
+using Funcionarios.Application.Interface;
 using Funcionarios.Application.Viewmodel;
 using Funcionarios.Domain.Entities;
 using Funcionarios.Domain.Interface;
@@ -14,10 +15,12 @@ namespace Funcionarios.Application.Services
     {
 
         private readonly IUserRepository userRepository;
+        private readonly IMapper mapper;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
             this.userRepository = userRepository;
+            this.mapper = mapper;
         }
         public List<UserViewModel> Get()
         {
@@ -25,10 +28,9 @@ namespace Funcionarios.Application.Services
 
             IEnumerable<User> _users = this.userRepository.GetAll();
 
-            foreach (var item in _users)
-            {
-                _userViewModels.Add(new UserViewModel { Id = item.Id, Email = item.Email,Name = item.Name });
-            }
+            _userViewModels = mapper.Map<List<UserViewModel>>(_users);
+
+            
 
             return _userViewModels;
 
@@ -36,16 +38,11 @@ namespace Funcionarios.Application.Services
 
         public bool Post(UserViewModel userViewModel)
         {
-            User _user = new User
-            {
-                Id = Guid.NewGuid(),
-                Email = userViewModel.Email,
-                Name = userViewModel.Name,
 
-            };
+            User _user = mapper.Map<User>(userViewModel);
 
             this.userRepository.Create(_user);
-
+            
             return true;
         }
     }
