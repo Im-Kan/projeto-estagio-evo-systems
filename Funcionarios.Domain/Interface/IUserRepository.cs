@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Funcionarios.Domain.Interface
 {
-    public interface IUserRepository
+    public interface IUserRepository: IRepository<User>
     {
+
         IEnumerable<User> GetAll();
     }
 }

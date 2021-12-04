@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Funcionarios.Domain.Entities;
 using Funcionarios.data.Context;
 using Funcionarios.Application.Interface;
+using Funcionarios.Application.Viewmodel;
 
 namespace asp_net_core_com_angular.Controllers
 {
@@ -15,18 +16,29 @@ namespace asp_net_core_com_angular.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IUserService userServices;
+        private readonly IUserService userService;
 
         public UsersController(IUserService userService)
         {
-            this.userServices = userService;
+            this.userService = userService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
             
-            return Ok(this.userServices.Get());
+            return Ok(this.userService.Get());
+        }
+
+        [HttpPost]
+        public IActionResult Post(UserViewModel userViewModel)
+        {
+            return NewMethod(userViewModel);
+        }
+
+        private IActionResult NewMethod(UserViewModel userViewModel)
+        {
+            return Ok(this.userService.Post(userViewModel));
         }
     }
 }

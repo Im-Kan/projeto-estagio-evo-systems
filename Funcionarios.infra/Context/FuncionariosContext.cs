@@ -24,6 +24,7 @@ namespace Funcionarios.data.Context
         {
             modelBuilder.ApplyConfiguration(new UserMap());
 
+            modelBuilder.ApplyGlobalConfig();
             modelBuilder.SeedData();
 
             base.OnModelCreating(modelBuilder);
