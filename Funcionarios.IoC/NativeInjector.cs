@@ -14,12 +14,14 @@ namespace Funcionarios.IoC
             #region Services
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDepartamentService, DepartamentService>();
 
             #endregion
 
             #region Repositories
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IDepartamentRepository, DepartamentRepository>();
 
             #endregion
         }
