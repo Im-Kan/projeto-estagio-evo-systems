@@ -13,5 +13,7 @@ namespace Funcionarios.Domain.Entities
         public string Name { get; set; }
 
         public string Email { get; set; }
+
+        private string password { get; set; }
     }
 }

@@ -40,5 +40,23 @@ namespace asp_net_core_com_angular.Controllers
         {
             return Ok(this.userService.Post(userViewModel));
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(string id)
+        {
+            return Ok(this.userService.GetById(id));
+        }
+
+        [HttpPut]
+        public IActionResult Put(UserViewModel userViewModel)
+        {
+            return Ok(this.userService.Put(userViewModel));
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            return Ok(this.userService.Delete(id));
+        }
     }
 }

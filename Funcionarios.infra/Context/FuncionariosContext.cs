@@ -17,6 +17,8 @@ namespace Funcionarios.data.Context
         #region "DbSets"
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Departament> Departament { get; set; }
+        public DbSet<Worker> Worker { get; set; }
 
         #endregion
 

@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1-Data", "4.1-Data", "{4E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2-CrossCutting", "4.2-CrossCutting", "{31C16484-576D-4B65-9996-97E92C5BFD71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcionarios.IoC", "Funcionarios.IoC\Funcionarios.IoC.csproj", "{2450F4D3-44F0-412E-B4A7-C57557BF7917}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funcionarios.IoC", "Funcionarios.IoC\Funcionarios.IoC.csproj", "{2450F4D3-44F0-412E-B4A7-C57557BF7917}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcionarios.Swagger", "Funcionarios.Swagger\Funcionarios.Swagger.csproj", "{B64AFCAD-DA86-4AD4-A870-5FAF3B3F920C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{2450F4D3-44F0-412E-B4A7-C57557BF7917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2450F4D3-44F0-412E-B4A7-C57557BF7917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2450F4D3-44F0-412E-B4A7-C57557BF7917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64AFCAD-DA86-4AD4-A870-5FAF3B3F920C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64AFCAD-DA86-4AD4-A870-5FAF3B3F920C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64AFCAD-DA86-4AD4-A870-5FAF3B3F920C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64AFCAD-DA86-4AD4-A870-5FAF3B3F920C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{4E3E234C-F8B0-4E23-BDF2-E768C5C03C38} = {BDE56C32-920A-4338-B93C-67A729D9A5DF}
 		{31C16484-576D-4B65-9996-97E92C5BFD71} = {BDE56C32-920A-4338-B93C-67A729D9A5DF}
 		{2450F4D3-44F0-412E-B4A7-C57557BF7917} = {31C16484-576D-4B65-9996-97E92C5BFD71}
+		{B64AFCAD-DA86-4AD4-A870-5FAF3B3F920C} = {31C16484-576D-4B65-9996-97E92C5BFD71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0FB65622-2662-4575-B8D1-DAA12A1AFE71}

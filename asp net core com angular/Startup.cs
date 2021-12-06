@@ -1,6 +1,7 @@
 using Funcionarios.Application.AutoMapper;
 using Funcionarios.data.Context;
 using Funcionarios.IoC;
+using Funcionarios.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -30,6 +31,8 @@ namespace asp_net_core_com_angular
 
             services.AddAutoMapper(typeof(AutoMapperSetup));
 
+            services.AddSwaggerConfiguration();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -48,6 +51,8 @@ namespace asp_net_core_com_angular
             {
                 app.UseExceptionHandler("/Error");
             }
+
+            app.UseSwaggerConfiguration();
 
             app.UseStaticFiles();
             if (!env.IsDevelopment())

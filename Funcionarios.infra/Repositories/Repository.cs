@@ -230,7 +230,7 @@ namespace Funcionarios.Data.Repositories
         {
             try
             {
-                return DbSet.Where(where);
+                return DbSet.AsNoTracking().Where(where);
             }
             catch (Exception)
             {
