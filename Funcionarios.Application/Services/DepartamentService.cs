@@ -43,5 +43,24 @@ namespace Funcionarios.Application.Services
 
             return true;
         }
+        public bool Put(Departament departamentViewModel)
+        {
+            Departament _departament = this.departamentRepository.Find(x => x.Id == departamentViewModel.Id && !x.IsDeleted);
+            if (_departament == null)
+                throw new Exception("User not found to be updated");
+            _departament = mapper.Map<Departament>(departamentViewModel);
+            this.departamentRepository.Update(_departament);
+            return true;
+        }
+
+        public bool Delete(string id)
+        {
+            if (!int.TryParse(id, out int departamentId))
+                throw new Exception("User ID is not valid");
+            Departament _departament = this.departamentRepository.Find(x => x.Id == departamentId && !x.IsDeleted);
+            if (_departament == null)
+                throw new Exception("User not found");
+            return this.departamentRepository.Delete(_departament);
+        }
     }
 }

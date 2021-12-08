@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Funcionarios.Domain.Entities
 {
-    public class Worker: Entity
+    public class Worker : Entity
     {
         public string Name { get; set; }
         public string RG { get; set; }
         //Navigation prop
+        public int DepartamentId { get; set;}
         public Departament Departament { get; set; }
-
 
     }
 }

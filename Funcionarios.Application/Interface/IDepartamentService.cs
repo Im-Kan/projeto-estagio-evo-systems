@@ -11,6 +11,8 @@ namespace Funcionarios.Application.Interface
     {
         List<Departament> Get();
         bool Post(Departament departament);
+        bool Put(Departament departament);
+        bool Delete(string id);
 
     }
 }

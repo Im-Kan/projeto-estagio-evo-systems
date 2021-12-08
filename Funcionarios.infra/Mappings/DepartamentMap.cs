@@ -8,5 +8,7 @@ namespace Funcionarios.data.Mappings
 {
     class DepartamentMap
     {
+
+
     }
 }

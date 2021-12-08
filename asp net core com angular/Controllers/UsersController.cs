@@ -31,12 +31,12 @@ namespace asp_net_core_com_angular.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(UserViewModel userViewModel)
+        public IActionResult Post(userViewModel userViewModel)
         {
             return NewMethod(userViewModel);
         }
 
-        private IActionResult NewMethod(UserViewModel userViewModel)
+        private IActionResult NewMethod(userViewModel userViewModel)
         {
             return Ok(this.userService.Post(userViewModel));
         }
@@ -48,7 +48,7 @@ namespace asp_net_core_com_angular.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(UserViewModel userViewModel)
+        public IActionResult Put(userViewModel userViewModel)
         {
             return Ok(this.userService.Put(userViewModel));
         }

@@ -14,9 +14,13 @@ namespace Funcionarios.data.Mappings
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.Property(x => x.Id).IsRequired();
+            builder.Property(x => x.Name).HasColumnName("Nomes").IsRequired();
 
-            builder.Property(x => x.Name).HasMaxLength(100).HasColumnName("Nomes").IsRequired();
-            
+
+
+
         }
+
+
     }
 }

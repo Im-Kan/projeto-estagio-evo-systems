@@ -38,6 +38,7 @@ namespace Funcionarios.data.Extensions
                             property.IsNullable = false;
                             property.SetDefaultValue(false);
                             break;
+                        
 
                         default:
                             break;
@@ -48,14 +49,6 @@ namespace Funcionarios.data.Extensions
             return builder;
         }
 
-        public static ModelBuilder SeedData(this ModelBuilder builder)
-        {
-            builder.Entity<Departament>()
-                .HasData(
-                    new Departament { Id = Guid.Parse("9519d358-a8d7-4350-8999-927c425b9e07"), Name = "Default", Sigla = "DF" , DateCreated = new DateTime(2021,12,3), IsDeleted = false , DateUpdated = null}
-                );
-            return builder;
-        }
 
     }
 }

@@ -15,6 +15,7 @@ namespace Funcionarios.IoC
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDepartamentService, DepartamentService>();
+            services.AddScoped<IWorkerService, WorkerService>();
 
             #endregion
 
@@ -22,6 +23,7 @@ namespace Funcionarios.IoC
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDepartamentRepository, DepartamentRepository>();
+            services.AddScoped<IWorkerRepository, WorkerRepository>();
 
             #endregion
         }

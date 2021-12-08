@@ -37,5 +37,15 @@ namespace asp_net_core_com_angular.Controllers
         {
             return Ok(this.departamentService.Post(departament));
         }
+        [HttpPut]
+        public IActionResult Put(Departament departament)
+        {
+            return Ok(this.departamentService.Put(departament));
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            return Ok(this.departamentService.Delete(id));
+        }
     }
 }

@@ -15,14 +15,17 @@ namespace Funcionarios.Application.AutoMapper
         {
             #region ViewModelToDomain
 
-            CreateMap<UserViewModel, User>();
+            CreateMap<userViewModel, User>();
+
+            CreateMap<Worker, Worker>();
 
             #endregion
 
 
             #region DomainToViewModel
 
-            CreateMap<User, UserViewModel>();
+            CreateMap<User, userViewModel>();
+
 
             #endregion
         }

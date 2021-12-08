@@ -19,5 +19,6 @@ namespace Funcionarios.data.Repositories
         {
             return Query(x => !x.IsDeleted);
         }
+
     }
 }

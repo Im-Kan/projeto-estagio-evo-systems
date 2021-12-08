@@ -12,7 +12,7 @@ namespace Funcionarios.Domain.Entities
         public string Name { get; set; }
         public string Sigla { get; set; }
         //Navigation prop
-        public ICollection<Worker> Workers { get; set; }
+        public List<Worker> Workers {get; set;}
 
 
     }

@@ -3,30 +3,21 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Funcionarios.data.Migrations
 {
-    public partial class DepartamenteWorkerAdded : Migration
+    public partial class Base : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "DateCreated",
-                table: "Users",
-                type: "datetime2",
-                nullable: false,
-                defaultValue: new DateTime(2021, 12, 6, 15, 35, 48, 584, DateTimeKind.Local).AddTicks(2205),
-                oldClrType: typeof(DateTime),
-                oldType: "datetime2",
-                oldDefaultValue: new DateTime(2021, 12, 4, 16, 17, 23, 155, DateTimeKind.Local).AddTicks(6132));
-
             migrationBuilder.CreateTable(
                 name: "Departament",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Sigla = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 12, 6, 15, 35, 48, 576, DateTimeKind.Local).AddTicks(6335)),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,16 +25,34 @@ namespace Funcionarios.data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Worker",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RG = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DepartamentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 12, 6, 15, 35, 48, 584, DateTimeKind.Local).AddTicks(2581)),
+                    DepartamentId = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,7 +62,7 @@ namespace Funcionarios.data.Migrations
                         column: x => x.DepartamentId,
                         principalTable: "Departament",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -65,20 +74,13 @@ namespace Funcionarios.data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Users");
+
+            migrationBuilder.DropTable(
                 name: "Worker");
 
             migrationBuilder.DropTable(
                 name: "Departament");
-
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "DateCreated",
-                table: "Users",
-                type: "datetime2",
-                nullable: false,
-                defaultValue: new DateTime(2021, 12, 4, 16, 17, 23, 155, DateTimeKind.Local).AddTicks(6132),
-                oldClrType: typeof(DateTime),
-                oldType: "datetime2",
-                oldDefaultValue: new DateTime(2021, 12, 6, 15, 35, 48, 584, DateTimeKind.Local).AddTicks(2205));
         }
     }
 }

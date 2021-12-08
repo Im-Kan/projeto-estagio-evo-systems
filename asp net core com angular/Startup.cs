@@ -31,6 +31,8 @@ namespace asp_net_core_com_angular
 
             services.AddAutoMapper(typeof(AutoMapperSetup));
 
+            services.AddControllers().AddNewtonsoftJson();
+
             services.AddSwaggerConfiguration();
 
             // In production, the Angular files will be served from this directory

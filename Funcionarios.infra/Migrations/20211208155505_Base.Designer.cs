@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Funcionarios.data.Migrations
 {
     [DbContext(typeof(FuncionariosContext))]
-    [Migration("20211206183549_Departament e Worker Added")]
-    partial class DepartamenteWorkerAdded
+    [Migration("20211208155505_Base")]
+    partial class Base
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,22 +23,19 @@ namespace Funcionarios.data.Migrations
 
             modelBuilder.Entity("Funcionarios.Domain.Entities.Departament", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 12, 6, 15, 35, 48, 576, DateTimeKind.Local).AddTicks(6335));
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -53,14 +50,13 @@ namespace Funcionarios.data.Migrations
 
             modelBuilder.Entity("Funcionarios.Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 12, 6, 15, 35, 48, 584, DateTimeKind.Local).AddTicks(2205));
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -69,52 +65,34 @@ namespace Funcionarios.data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("Nomes");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("e28234c7-e309-418e-9367-f6c456469cf1"),
-                            DateCreated = new DateTime(2021, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "userdefault@funcionarios.com",
-                            IsDeleted = false,
-                            Name = "User Default"
-                        });
                 });
 
             modelBuilder.Entity("Funcionarios.Domain.Entities.Worker", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 12, 6, 15, 35, 48, 584, DateTimeKind.Local).AddTicks(2581));
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("DepartamentId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DepartamentId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -133,7 +111,9 @@ namespace Funcionarios.data.Migrations
                 {
                     b.HasOne("Funcionarios.Domain.Entities.Departament", "Departament")
                         .WithMany("Workers")
-                        .HasForeignKey("DepartamentId");
+                        .HasForeignKey("DepartamentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Departament");
                 });

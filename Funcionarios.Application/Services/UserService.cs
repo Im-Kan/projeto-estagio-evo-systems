@@ -22,13 +22,13 @@ namespace Funcionarios.Application.Services
             this.userRepository = userRepository;
             this.mapper = mapper;
         }
-        public List<UserViewModel> Get()
+        public List<userViewModel> Get()
         {
-            List<UserViewModel> _userViewModels = new List<UserViewModel>();
+            List<userViewModel> _userViewModels = new List<userViewModel>();
 
             IEnumerable<User> _users = this.userRepository.GetAll();
 
-            _userViewModels = mapper.Map<List<UserViewModel>>(_users);
+            _userViewModels = mapper.Map<List<userViewModel>>(_users);
 
             
 
@@ -36,7 +36,7 @@ namespace Funcionarios.Application.Services
 
         }
 
-        public bool Post(UserViewModel userViewModel)
+        public bool Post(userViewModel userViewModel)
         {
 
             User _user = mapper.Map<User>(userViewModel);
@@ -46,17 +46,17 @@ namespace Funcionarios.Application.Services
             return true;
         }
 
-        public UserViewModel GetById(string id)
+        public userViewModel GetById(string id)
         {
-            if (!Guid.TryParse(id, out Guid userId))
+            if (!int.TryParse(id, out int userId))
                 throw new Exception("User ID is not valid");
             User _user = this.userRepository.Find(x => x.Id == userId && !x.IsDeleted);
             if (_user == null)
                 throw new Exception("User not found");
-            return mapper.Map<UserViewModel>(_user);
+            return mapper.Map<userViewModel>(_user);
         }
 
-        public bool Put(UserViewModel userViewModel)
+        public bool Put(userViewModel userViewModel)
         {
             User _user = this.userRepository.Query(x => x.Id == userViewModel.Id && !x.IsDeleted).FirstOrDefault();
             if (_user == null)
@@ -68,7 +68,7 @@ namespace Funcionarios.Application.Services
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid userId))
+            if (!int.TryParse(id, out int userId))
                 throw new Exception("User ID is not valid");
             User _user = this.userRepository.Find(x => x.Id == userId && !x.IsDeleted);
             if (_user == null)

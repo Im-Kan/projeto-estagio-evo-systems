@@ -9,10 +9,10 @@ namespace Funcionarios.Application.Interface
 {
     public interface IUserService
     {
-        List<UserViewModel> Get();
-        bool Post(UserViewModel userViewModel);
-        UserViewModel GetById(string id);
-        bool Put(UserViewModel userViewModel);
+        List<userViewModel> Get();
+        bool Post(userViewModel userViewModel);
+        userViewModel GetById(string id);
+        bool Put(userViewModel userViewModel);
         bool Delete(string id);
     }
 }

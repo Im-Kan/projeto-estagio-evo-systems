@@ -22,16 +22,7 @@ namespace Funcionarios.data.Context
 
         #endregion
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new UserMap());
 
-
-            modelBuilder.ApplyGlobalConfig();
-            modelBuilder.SeedData();
-
-            base.OnModelCreating(modelBuilder);
-        }
 
     }
 }
