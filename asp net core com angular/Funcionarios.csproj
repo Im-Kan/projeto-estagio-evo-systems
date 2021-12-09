@@ -44,6 +44,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\my.module.ts" />
+    <None Remove="ClientApp\src\app\models\worker-model.module.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\api-doc.xml" />
   </ItemGroup>
 
@@ -52,6 +57,10 @@
     <ProjectReference Include="..\Funcionarios.infra\Funcionarios.data.csproj" />
     <ProjectReference Include="..\Funcionarios.IoC\Funcionarios.IoC.csproj" />
     <ProjectReference Include="..\Funcionarios.Swagger\Funcionarios.Swagger.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\services\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
