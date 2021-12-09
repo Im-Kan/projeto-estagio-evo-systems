@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Departaments, Workers } from '../models/Departament.Model';
-import { CrudService } from '../services/crud.service';
+import { Departaments, Workers } from '../../models/Models.Model';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-home',

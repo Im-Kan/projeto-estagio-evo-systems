@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Departaments } from '../models/Departament.Model';
 
 @Injectable({
   providedIn: 'root'

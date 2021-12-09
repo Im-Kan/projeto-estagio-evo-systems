@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Departamentos</h1>
+<br>
+
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Sigla</th>
+      <th>ID</th>
+      <th>Editar</th>
+      <th>Excluir</th>
+      <th>Funcionários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let departaments of departaments">
+      <td>{{ departaments.name }}</td>
+      <td>{{ departaments.sigla }}</td>
+      <td>{{ departaments.id }}</td>
+      <td></td>
+      <td></td>
+      <td><div><a class="nav-link text-dark" [routerLink]="['/funcionarios']">Ver</a></div></td>
+    </tr>
+  </tbody>
+</table>
+
