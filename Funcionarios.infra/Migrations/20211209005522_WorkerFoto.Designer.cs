@@ -4,14 +4,16 @@ using Funcionarios.data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Funcionarios.data.Migrations
 {
     [DbContext(typeof(FuncionariosContext))]
-    partial class FuncionariosContextModelSnapshot : ModelSnapshot
+    [Migration("20211209005522_WorkerFoto")]
+    partial class WorkerFoto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
