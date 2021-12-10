@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Departaments, Workers } from '../../models/Models.Model';
 import { CrudService } from '../../services/crud.service';
 
@@ -10,11 +11,22 @@ export class HomeComponent implements OnInit {
   departaments = new Departaments();
   workers = new Workers();
   erro: any;
-  constructor(private crudService: CrudService) {
+  id: number;
+  public selectedDepartament: string;
+  constructor(private crudService: CrudService,
+    private route: ActivatedRoute) {
     this.getWorkers();
     this.getDepartaments();
   }
-  ngOnInit() { }
+  ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params);
+
+        this.id = params.id;
+        console.log(this.id);
+      })
+  }
   getDepartaments() {
     this.crudService.getDepartaments().subscribe((data: Departaments) => {
       this.departaments = data
@@ -36,5 +48,8 @@ export class HomeComponent implements OnInit {
         this.erro = error;
         console.error("ERRO", error);
       });
+  }
+  selectDepartament(departament: any) {
+    this.selectedDepartament = departament.name;
   }
 }

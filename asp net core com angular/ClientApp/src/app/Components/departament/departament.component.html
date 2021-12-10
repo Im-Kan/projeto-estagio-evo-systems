@@ -33,10 +33,11 @@
 <div *ngIf="!selectedWorker">
 
 
-  <h1 id="tableLabel">Lista de todos os Funcionários</h1>
+  <h1 id="tableLabel">Funcionários</h1>
   <button class="btn btn-warning" [routerLink]="['']">Departamentos</button>
   <br>
   <br>
+
   <table class='table table-hover' aria-labelledby="tableLabel">
     <thead class="thead-dark">
       <tr>
@@ -44,20 +45,21 @@
         <th>RG</th>
         <th>ID</th>
         <th>Foto</th>
-        <th>ID do Departamento</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let w of workers">
-        <td>{{ w.id }}</td>
-        <td>{{ w.name }}</td>
-        <td>{{ w.rg }}</td>
-        <td><img src="{{ w.foto }}" width="35" height="35" /></td>
-        <td>{{w.departamentId}}</td>
-        <td><button class="btn btn-primary" (click)="selectWorker(w)">Selecionar</button></td>
+      <tr *ngFor="let workers of workers">
+        <td>{{ workers.name }}</td>
+        <td>{{ workers.rg }}</td>
+        <td>{{ workers.id }}</td>
+        <td><img src="{{ workers.foto }}" width="35" height="35" /></td>
+        <td><button class="btn btn-primary" (click)="selectWorker(workers)">Selecionar</button></td>
+ 
       </tr>
     </tbody>
   </table>
 
-  </div>
+
+</div>

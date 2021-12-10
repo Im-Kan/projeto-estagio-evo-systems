@@ -7,7 +7,8 @@ export class Departaments {
 export class Workers {
 
   public name: string;
-  public sigla: string;
+  public rg: string;
   public id: number;
+  public foto: string;
 }
 

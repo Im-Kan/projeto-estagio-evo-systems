@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { WorkerComponent } from './components/workers/workers.component';
+import { DepartamentComponent } from './components/departament/departament.component';
+import { Departaments } from './models/Models.Model';
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { WorkerComponent } from './components/workers/workers.component';
     NavMenuComponent,
     HomeComponent,
     WorkerComponent,
+    DepartamentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,6 +27,7 @@ import { WorkerComponent } from './components/workers/workers.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'funcionarios', component: WorkerComponent },
+      { path: 'departamento/:id', component: DepartamentComponent }
       
     ])
   ],

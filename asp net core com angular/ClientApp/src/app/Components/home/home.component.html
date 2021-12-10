@@ -1,26 +1,57 @@
-<h1 id="tableLabel">Departamentos</h1>
-<br>
 
-<table class='table table-striped' aria-labelledby="tableLabel">
-  <thead class="thead-dark">
-    <tr>
-      <th>Nome</th>
-      <th>Sigla</th>
-      <th>ID</th>
-      <th>Editar</th>
-      <th>Excluir</th>
-      <th>Funcionários</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let departaments of departaments">
-      <td>{{ departaments.name }}</td>
-      <td>{{ departaments.sigla }}</td>
-      <td>{{ departaments.id }}</td>
-      <td></td>
-      <td></td>
-      <td><div><a class="nav-link text-dark" [routerLink]="['/funcionarios']">Ver</a></div></td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="selectedDepartament">
 
+  <h1>{{selectedDepartament}}</h1>
+  <button class="btn btn-warning" (click)="selectDepartament('')">Voltar</button>
+
+  <br>
+  <br>
+  <form>
+    <div class="form-group">
+
+      <label for="exampleInputEmail1">Nome do Departamento</label>
+
+      <input type="email" class="form-control" id="exampleInput" aria-describedby="emailHelp" placeholder="Digite o Nome">
+
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Sigla</label>
+      <input type="password" class="form-control" id="exampleInput" placeholder="Digite a Sigla">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Editar</button>
+  </form>
+</div>
+<div *ngIf="!selectedDepartament">
+
+
+
+  <h1 id="tableLabel">Departamentos</h1>
+  <br>
+
+  <table class='table table-hover' aria-labelledby="tableLabel">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nome</th>
+        <th>Sigla</th>
+        <th>ID</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let departaments of departaments">
+        <td>{{ departaments.name }}</td>
+        <td>{{ departaments.sigla }}</td>
+        <td>{{ departaments.id }}</td>
+        <td><button class="btn btn-info" [routerLink]="['/departamento/',departaments.id]">Funcionários</button></td>
+        <td><button class="btn btn-primary" (click)="selectDepartament(departaments)">Selecionar</button></td>
+
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>

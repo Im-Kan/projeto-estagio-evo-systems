@@ -10,6 +10,7 @@ export class WorkerComponent implements OnInit {
   departaments = new Departaments();
   workers = new Workers();
   erro: any;
+  public selectedWorker: string;
   constructor(private crudService: CrudService) {
     this.getWorkers();
 
@@ -25,5 +26,8 @@ export class WorkerComponent implements OnInit {
         this.erro = error;
         console.error("ERRO", error);
       });
+  }
+  selectWorker(worker: any) {
+    this.selectedWorker = worker.name;
   }
 }

@@ -38,7 +38,7 @@ namespace Funcionarios.Application.Services
         public List<Worker> GetByDI(int departamentId)
         {
             List<Worker> _workerViewModels = new List<Worker>();
-            // IEnumerable<Worker> _workers = this.workerRepository.Find(x => x.DepartamentId == id && !x.IsDeleted);
+
             IEnumerable<Worker> _workers = this.workerRepository.GetAll();
             foreach (Worker worker in _workers)
             {
