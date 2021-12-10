@@ -64,6 +64,8 @@ namespace asp_net_core_com_angular
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -49,6 +49,15 @@ namespace Funcionarios.Application.Services
 
             return _workerViewModels;
         }
+        public Worker GetById(string id)
+        {
+            if (!int.TryParse(id, out int workerId))
+                throw new Exception("User ID is not valid");
+            Worker _worker = this.workerRepository.Find(x => x.Id == workerId && !x.IsDeleted);
+            if (_worker == null)
+                throw new Exception("User not found");
+            return _worker;
+        }
 
         public bool Post(Worker worker)
         {

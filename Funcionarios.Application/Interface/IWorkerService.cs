@@ -15,5 +15,6 @@ namespace Funcionarios.Application.Interface
         bool Post(Worker worker);
         bool Put(Worker worker);
         bool Delete(string id);
+        Worker GetById(string id);
     }
 }

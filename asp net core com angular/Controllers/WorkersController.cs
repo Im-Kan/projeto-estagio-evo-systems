@@ -32,6 +32,11 @@ namespace asp_net_core_com_angular.Controllers
         {
             return Ok(this.workerService.GetByDI(departamentId));
         }
+        [HttpGet("one/{id}")]
+        public IActionResult GetById(string departamentId)
+        {
+            return Ok(this.workerService.GetById(departamentId));
+        }
 
         [HttpPost]
         public IActionResult Post(Worker worker)
