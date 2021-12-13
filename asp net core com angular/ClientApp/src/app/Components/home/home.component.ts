@@ -7,6 +7,7 @@ import { CrudService } from '../../services/crud.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   //variables
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
     private router: Router) {
 
     this.getDepartaments();
-    this.criarForm();
+ 
   }
   //init
   ngOnInit() {
@@ -44,11 +45,11 @@ export class HomeComponent implements OnInit {
   }
   //Forms
 
-  criarForm() {
+  criarForm(dep: Departaments) {
     this.formDepartament = this.fb.group({
-      id: [''],
-      name: [''],
-      sigla: ['']
+      id: [dep.id],
+      name: [dep.name],
+      sigla: [dep.sigla]
     });
   }
 
@@ -93,6 +94,7 @@ export class HomeComponent implements OnInit {
   //Para esconder/mostrar os botões
   selectDepartament(departament: any) {
     this.selectedDepartament = departament;
+    this.criarForm(departament);
   }
   selectDepartament2(departament2: any) {
     this.selectedDepartament2 = departament2;

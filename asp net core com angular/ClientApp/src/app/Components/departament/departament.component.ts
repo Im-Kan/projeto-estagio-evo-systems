@@ -48,7 +48,7 @@ export class DepartamentComponent implements OnInit {
     private router: Router) {
     
     this.getworkers();
-    this.criarForm();
+    
     this.criarFormPost();
   }
 
@@ -84,19 +84,19 @@ export class DepartamentComponent implements OnInit {
   //hide show buttons
   selectWorker(worker: any) {
     this.selectedWorker = worker;
-    this.getworkersbyid();
+    this.criarForm(worker);
   }
   selectWorker2(worker2: any) {
     this.selectedWorker2 = worker2;
   }
   //forms
-  criarForm() {
+  criarForm(worker: Workers) {
     this.formWorkerPut = this.fb.group({
-      id: [this.workers.id],
-      name: [this.wname],
-      rg: [this.workers.rg],
-      foto: [this.workers.foto],
-      departamentId: [this.depId]
+      id: [worker.id],
+      name: [worker.name],
+      rg: [worker.rg],
+      foto: [worker.foto],
+      departamentId: [worker.departamentId]
     });
   }
 

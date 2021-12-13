@@ -10,5 +10,6 @@ export class Workers {
   public rg: string;
   public id: number;
   public foto: string;
+  public departamentId: number
 }
 

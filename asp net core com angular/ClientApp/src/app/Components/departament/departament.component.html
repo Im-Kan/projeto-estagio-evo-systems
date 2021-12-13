@@ -1,87 +1,89 @@
-<div *ngIf="selectedWorker2">
-  <button class="btn btn-success" (click)="selectWorker2('')">Fechar</button>
 
-  <br>
-  <br>
-  <form [formGroup]="formWorkerPost">
+  <div *ngIf="selectedWorker2">
+    <button class="btn btn-warning frmBtn" (click)="selectWorker2('')">Fechar</button>
 
-    <div class="form-group">
-      <label for="exampleInputPassword1">Digite o Nome do Novo Funcionário </label>
-      <br />
-      <input class="form-control" formControlName="name" type="text" placeholder="Nome do Novo Funcionário">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Digite o RG do Novo Funcionáro</label>
-      <br />
-      <input class="form-control" formControlName="rg" type="text" placeholder="RG do Novo Funcionáro">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Digite o URL da Foto do Novo Funcionário</label>
-      <br />
-      <input class="form-control" formControlName="foto" type="text" placeholder="URL da Foto do Novo Funcionário">
-    </div>
+    <br>
+    <br>
+    <form [formGroup]="formWorkerPost">
 
-    <button type="submit" class="btn btn-primary" (click)="saveWorkerPost()">Enviar</button>
-  </form>
-</div>
-<div *ngIf="selectedWorker">
+      <div class="form-group">
+        <label for="exampleInputPassword1">Digite o Nome do Novo Funcionário </label>
+        <br />
+        <input class="form-control" formControlName="name" type="text" placeholder="Nome do Novo Funcionário">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Digite o RG do Novo Funcionáro</label>
+        <br />
+        <input class="form-control" formControlName="rg" type="text" placeholder="RG do Novo Funcionáro">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Digite o URL da Foto do Novo Funcionário</label>
+        <br />
+        <input class="form-control" formControlName="foto" type="text" placeholder="URL da Foto do Novo Funcionário">
+      </div>
+
+      <button type="submit" class="btn btn-primary frmBtn" (click)="saveWorkerPost()">Enviar</button>
+    </form>
+  </div>
+  <div *ngIf="selectedWorker">
 
 
 
-  <button class="btn btn-warning" (click)="selectWorker('')">Fechar</button>
+    <button class="btn btn-warning frmBtn" (click)="selectWorker('')">Fechar</button>
 
-  <br>
-  <br>
-  <form [formGroup]="formWorkerPut">
-    <div class="form-group">
+    <br>
+    <br>
+    <form [formGroup]="formWorkerPut">
+      <div class="form-group">
 
-      <label for="exampleInputEmail1">Digite o ID do Funcionario que deseja editar</label>
-      <br />
+        <label for="exampleInputEmail1">Digite o ID do Funcionario que deseja editar</label>
+        <br />
 
-      <input class="form-control" formControlName="id" type="text" placeholder="ID do Funcionario que deseja editar">
+        <input class="form-control" formControlName="id" type="text" placeholder="ID do Funcionario que deseja editar">
 
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Digite o Novo Nome</label>
-      <br />
-      <input class="form-control" formControlName="name" type="text" placeholder="Novo Nome">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Digite a nova Sigla</label>
-      <br />
-      <input class="form-control" formControlName="rg" type="text" placeholder="Novo RG">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Digite a Nova URL da Foto</label>
-      <br />
-      <input class="form-control" formControlName="foto" type="text" placeholder="Nova URL da Foto">
-    </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Digite o Novo Nome</label>
+        <br />
+        <input class="form-control" formControlName="name" type="text" placeholder="Novo Nome">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Digite a nova Sigla</label>
+        <br />
+        <input class="form-control" formControlName="rg" type="text" placeholder="Novo RG">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Digite a Nova URL da Foto</label>
+        <br />
+        <input class="form-control" formControlName="foto" type="text" placeholder="Nova URL da Foto">
+      </div>
 
-    <div class="form-group">
-      <label for="exampleInputPassword1">Digite o Novo ID do departamento</label>
-      <br />
-      <input class="form-control" formControlName="departamentId" type="text" placeholder="Novo ID do departamento">
-    </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Digite o Novo ID do departamento</label>
+        <br />
+        <input class="form-control" formControlName="departamentId" type="text" placeholder="Novo ID do departamento">
+      </div>
 
-    <button type="submit" class="btn btn-primary" (click)="saveWorker()">Enviar</button>
-  </form>
-</div>
+      <button type="submit" class="btn btn-primary frmBtn" (click)="saveWorker()">Enviar</button>
+    </form>
+  </div>
 
   <div *ngIf="!selectedWorker2">
     <div *ngIf="!selectedWorker">
       <div *ngIf="!selectedWorker2">
-        <button class="btn btn-warning" (click)="selectWorker(workers)">Editar</button><button style="margin: 0 15px;" class="btn btn-success" (click)="selectWorker2(workers)">Adicionar</button>
+
       </div>
     </div>
-    </div>
+  </div>
 
   <br>
 
 
-  <h1 id="tableLabel" >Funcionários</h1>
-  <br>
-  <br>
+  <h1 id="tableLabel">Funcionários</h1>
 
+  <button type="submit" class="btn btn-link " [routerLink]="['/']">← Departamentos</button>
+  <br>
+  <br>
   <table class='table table-hover' aria-labelledby="tableLabel">
     <thead class="thead-dark">
       <tr>
@@ -90,7 +92,7 @@
         <th>RG</th>
         <th>Foto</th>
         <th></th>
-        <th></th>
+        <th><button class="btn btn-success frmBtn" (click)="selectWorker2(workers)">Cadastrar</button></th>
 
       </tr>
     </thead>
@@ -100,7 +102,9 @@
         <td>{{ workers.name }}</td>
         <td>{{ workers.rg }}</td>
         <td><img src="{{ workers.foto }}" width="35" height="35" /></td>
-        <td><button class="btn btn-danger" (click)="deleteWorker(workers.id)">Deletar</button></td>
+        <td><button class="btn btn-primary frmBtn" (click)="selectWorker(workers)">Editar</button></td>
+        <td><button class="btn btn-danger  frmBtn" (click)="deleteWorker(workers.id)">Deletar</button></td>
+
 
 
       </tr>

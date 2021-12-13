@@ -62,5 +62,15 @@ namespace Funcionarios.Application.Services
                 throw new Exception("User not found");
             return this.departamentRepository.Delete(_departament);
         }
+
+        public Departament GetById(string id)
+        {
+            if (!int.TryParse(id, out int depId))
+                throw new Exception("User ID is not valid");
+            Departament _dep = this.departamentRepository.Find(x => x.Id == depId && !x.IsDeleted);
+            if (_dep == null)
+                throw new Exception("User not found");
+            return mapper.Map<Departament>(_dep);
+        }
     }
 }

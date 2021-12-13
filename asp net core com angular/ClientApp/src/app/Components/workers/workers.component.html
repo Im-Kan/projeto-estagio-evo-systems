@@ -1,34 +1,43 @@
 
 <div *ngIf="selectedWorker">
 
-  <h1>{{selectedWorker}}</h1>
+  <h1>{{selectedWorker.name}}</h1>
   <button class="btn btn-warning" (click)="selectWorker('')">Voltar</button>
 
   <br>
   <br>
-  <form>
+  <form [formGroup]="formWorkerPut">
     <div class="form-group">
 
-      <label for="exampleInputEmail1">Nome do Departamento</label>
+      <label for="exampleInputEmail1">Digite o ID do Funcionario que deseja editar</label>
+      <br />
 
-
-      <input type="email" class="form-control" id="exampleInput" aria-describedby="emailHelp" placeholder="Digite o Nome">
+      <input class="form-control" formControlName="id" type="text" placeholder="ID do Funcionario que deseja editar">
 
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">RG</label>
-      <input type="password" class="form-control" id="exampleInput" placeholder="Digite o RG">
+      <label for="exampleInputPassword1">Digite o Novo Nome</label>
+      <br />
+      <input class="form-control" formControlName="name" type="text" placeholder="Novo Nome">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Foto por URL</label>
-      <input type="password" class="form-control" id="exampleInput" placeholder="Digite o URL da foto">
+      <label for="exampleInputPassword1">Digite a nova Sigla</label>
+      <br />
+      <input class="form-control" formControlName="rg" type="text" placeholder="Novo RG">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Digite a Nova URL da Foto</label>
+      <br />
+      <input class="form-control" formControlName="foto" type="text" placeholder="Nova URL da Foto">
     </div>
 
+    <div class="form-group">
+      <label for="exampleInputPassword1">Digite o Novo ID do departamento</label>
+      <br />
+      <input class="form-control" formControlName="departamentId" type="text" placeholder="Novo ID do departamento">
+    </div>
 
-    <button type="submit" class="btn btn-primary">Editar </button>
-    <br>
-    <br>
-    <button class="btn btn-danger">Excluir</button>
+    <button type="submit" class="btn btn-primary frmBtn" (click)="saveWorker()">Enviar</button>
   </form>
 
  
@@ -37,7 +46,7 @@
 
 
   <h1 id="tableLabel">Lista de todos os Funcionários</h1>
- 
+  <button type="submit" class="btn btn-link " [routerLink]="['/']">← Departamentos</button>
   <br>
   <br>
   <table class='table table-hover' aria-labelledby="tableLabel">
@@ -48,7 +57,8 @@
         <th>RG</th>
         <th>Foto</th>
         <th>ID do Departamento</th>
-
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -58,6 +68,9 @@
         <td>{{ w.rg }}</td>
         <td><img src="{{ w.foto }}" width="35" height="35" /></td>
         <td>{{w.departamentId}}</td>
+        
+        <td><button class="btn btn-primary frmBtn" (click)="selectWorker(w)">Editar</button></td>
+        <td><button class="btn btn-danger frmBtn" (click)="deleteWorker(w.id)">Deletar</button></td>
 
       </tr>
     </tbody>

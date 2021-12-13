@@ -47,5 +47,10 @@ namespace asp_net_core_com_angular.Controllers
         {
             return Ok(this.departamentService.Delete(id));
         }
+        [HttpGet("{id}")]
+        public IActionResult GetById(string id)
+        {
+            return Ok(this.departamentService.GetById(id));
+        }
     }
 }

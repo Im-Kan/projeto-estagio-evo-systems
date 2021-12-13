@@ -13,6 +13,7 @@ namespace Funcionarios.Application.Interface
         bool Post(Departament departament);
         bool Put(Departament departament);
         bool Delete(string id);
+        Departament GetById(string id);
 
     }
 }
